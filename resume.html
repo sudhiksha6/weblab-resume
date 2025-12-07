@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>John Anderson - Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #2c3e50;
+    background: #f8f9fa;
+}
+
+.wrap {
+    display: flex;
+    min-height: 100vh;
+}
+
+.side {
+    width: 260px;
+    background: white;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.06);
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.side h2 {
+    padding: 2rem 1.5rem;
+    font-size: 1.2rem;
+    color: #1A73E8;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.nav {
+    list-style: none;
+    padding: 1rem 0;
+}
+
+.nav li {
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: #495057;
+    border-left: 3px solid transparent;
+}
+
+.nav li:hover {
+    background: #f8f9fa;
+    color: #1A73E8;
+}
+
+.nav li.on {
+    background: #e3f2fd;
+    color: #1A73E8;
+    border-left-color: #1A73E8;
+    font-weight: 500;
+}
+
+.main {
+    margin-left: 260px;
+    flex: 1;
+    padding: 2rem;
+}
+
+.box {
+    max-width: 850px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 3rem;
+}
+
+.hdr {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #1A73E8;
+}
+
+.hdr h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.hdr p {
+    font-size: 1.1rem;
+    color: #1A73E8;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 1.4rem;
+    margin: 2rem 0 1rem;
+    color: #2c3e50;
+}
+
+.txt {
+    line-height: 1.7;
+    color: #495057;
+    margin-bottom: 1.5rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.card {
+    background: linear-gradient(135deg, #1A73E8, #1557b0);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    font-size: 2rem;
+}
+
+ul {
+    list-style: none;
+}
+
+.comp {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+}
+
+.comp li {
+    padding: 0.7rem 1rem;
+    background: #f8f9fa;
+    border-left: 3px solid #1A73E8;
+    border-radius: 4px;
+}
+
+.item {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.top h3 {
+    font-size: 1.2rem;
+}
+
+.top .sub {
+    color: #1A73E8;
+    font-weight: 500;
+}
+
+.date {
+    color: #6c757d;
+    background: #f8f9fa;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.lst li {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    position: relative;
+    line-height: 1.6;
+    color: #495057;
+}
+
+.lst li:before {
+    content: "•";
+    color: #1A73E8;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin: 1rem 0;
+}
+
+.tag {
+    background: #e3f2fd;
+    color: #1A73E8;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.tag:hover {
+    background: #1A73E8;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.cg {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.cc {
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    text-align: center;
+    transition: 0.3s;
+    border: 2px solid transparent;
+}
+
+.cc:hover {
+    border-color: #1A73E8;
+    transform: translateY(-5px);
+}
+
+.cc .ico {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cc h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.cc p {
+    color: #1A73E8;
+    font-weight: 500;
+}
+
+.btn {
+    display: inline-block;
+    background: #1A73E8;
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background: #1557b0;
+    transform: translateY(-2px);
+}
+
+.ft {
+    text-align: center;
+    padding: 2rem 0;
+    color: #6c757d;
+    font-size: 0.85rem;
+}
+
+.hide {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .side {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .main {
+        margin-left: 0;
+        padding: 1rem;
+    }
+    .box {
+        padding: 1.5rem;
+    }
+    .grid, .comp, .cg {
+        grid-template-columns: 1fr;
+    }
+    .top {
+        flex-direction: column;
+    }
+    .date {
+        margin-top: 0.5rem;
+    }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<aside class="side">
+<h2>Resume</h2>
+<ul class="nav">
+<li class="on" onclick="show('home')">🏠 Summary</li>
+<li onclick="show('edu')">🎓 Education</li>
+<li onclick="show('skills')">💻 Skills</li>
+<li onclick="show('proj')">📁 Projects</li>
+<li onclick="show('cert')">🏆 Certifications</li>
+<li onclick="show('contact')">✉️ Contact</li>
+</ul>
+</aside>
+
+<main class="main">
+<div class="box">
+<div id="home">
+<div class="hdr">
+<h1>Sudhiksha S </h1>
+<p>Third-Year CSE Engineering Student</p>
+</div>
+<h2>Professional Summary</h2>
+<p class="txt">Results-driven  Engineer interested in full-stack development, cloud architecture, and team leadership. Proven track record of delivering scalable web applications and leading cross-functional teams to achieve business objectives.</p>
+<div class="grid">
+<div class="card"><h3>5th</h3><p>Sem</p></div>
+<div class="card"><h3>15+</h3><p>Projects</p></div>
+<div class="card"><h3>6+</h3><p>Languages</p></div>
+
+</div>
+<h2>Core Competencies</h2>
+<ul class="comp">
+<li>Cloud Architecture</li>
+<li>Team Leadership</li>
+<li>Agile Project Management</li>
+<li>System Design</li>
+</ul>
+</div>
+
+<div id="edu" class="hide">
+<div class="hdr"><h1>Education</h1></div>
+<div class="item">
+<div class="top">
+<div>
+<h3>Bachelor of Science in Computer Science</h3>
+<p class="sub"> CMRIT University of Technology</p>
+</div>
+<span class="date">2023 - 2027</span>
+</div>
+<p><strong>GPA:</strong> 9.0</p>
+<p style="margin-top:1rem"><strong>Relevant Coursework:</strong></p>
+<p class="txt">Data Structures & Algorithms, Database Management Systems, Software Engineering, Web Development, Computer Networks, Operating Systems</p>
+<p><strong>Honors:</strong></p>
+<ul class="lst">
+<li>Dean's List (All Semesters)</li>
+<li>Computer Science Department Award</li>
+<li>Hackathon Participaton </li>
+</ul>
+</div>
+</div>
+
+<div id="skills" class="hide">
+<div class="hdr"><h1>Skills & Technologies</h1></div>
+<h2>Languages</h2>
+<div class="tags">
+<span class="tag">JavaScript</span>
+<span class="tag">Python</span>
+<span class="tag">SQL</span>
+</div>
+<h2>Frontend</h2>
+<div class="tags">
+<span class="tag">CSS</span>
+<span class="tag">HTML</span>
+</div>
+<h2>Backend & Database</h2>
+<div class="tags">
+<span class="tag">JavaScript</span>
+<span class="tag">MYsql</span>
+<span class="tag">MongoDB</span>
+</div>
+
+</div>
+
+<div id="proj" class="hide">
+<div class="hdr"><h1>Featured Projects</h1></div>
+<div class="item">
+<h3>Cutsomer service website </h3>
+<ul class="lst">
+<li>Languages/Tech: HTML, CSS, JavaScript</li>
+<li>Implemented  to manage customer data, handle authentication, and store service requests securely in a database.</li>
+</ul>
+</div>
+
+<div class="item">
+<h3>Mobile-First Social Media Application</h3>
+<p React Native, Firebase, Redux, WebSocket</p>
+<ul class="lst">
+<li>Built cross-platform mobile app with 50K+ downloads in first quarter</li>
+<li>Implemented real-time messaging system with typing indicators</li>
+<li>Optimized image upload reducing storage costs by 40%</li>
+<li>Integrated push notifications increasing engagement by 35%</li>
+</ul>
+</div>
+</div>
+
+<div id="cert" class="hide">
+<div class="hdr"><h1>Certifications</h1></div>
+<div class="item">
+<div class="top">
+<h3>Infosys </h3>
+<span class="date">Jan 2025</span>
+</div>
+<p class="sub">The complete web Development training course </p>
+<p style="color:#6c757d;font-size:.85rem"></p>
+</div>
+<div class="item">
+<div class="top">
+<h3>Certified  Administrator</h3>
+<span class="date">Sep 2024</span>
+</div>
+<p class="sub">Cloud Native Computing Foundation</p>
+<p style="color:#6c757d;font-size:.85rem"></p>
+</div>
+</div>
+
+<div id="contact" class="hide">
+<div class="hdr"><h1>Contact Information</h1></div>
+<div class="cg">
+<div class="cc">
+<div class="ico">📧</div>
+<h3>Email</h3>
+<p>sudhikshasuresh151@gmail.com</p>
+</div>
+<div class="cc">
+<div class="ico">📱</div>
+<h3>Phone</h3>
+<p>6366795661</p>
+</div>
+<div class="cc">
+<div class="ico">📍</div>
+<h3>Location</h3>
+<p>Bangalore , INDIA </p>
+</div>
+
+<div class="cc">
+<div class="ico">💻</div>
+<h3>GitHub</h3>
+<p>github.com/sudhiksha6</p>
+</div>
+</div>
+<div style="margin-top:2rem;text-align:center">
+<p class="txt">I'm always interested in new opportunities and challenging projects. Feel free to reach out!</p>
+<a href="mailto:sudhikshasuresh151@gmail.com" class="btn">Send Email</a>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+<script>
+function show(p){
+document.querySelectorAll('.nav li').forEach(l=>l.classList.remove('on'));
+event.target.classList.add('on');
+document.querySelectorAll('.box>div').forEach(d=>d.classList.add('hide'));
+document.getElementById(p).classList.remove('hide');
+}
+</script>
+</body>
+</html>
